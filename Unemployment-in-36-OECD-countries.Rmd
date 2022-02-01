@@ -1,0 +1,4040 @@
+---
+title: "UNEMPLOYMENT IN 36 OECD COUNTRIES"
+output: 
+  flexdashboard::flex_dashboard:
+    social: [ "twitter"]
+    orientation: rows
+    vertical_layout: scroll
+    smooth_scroll: true
+    html_document:
+    theme:
+      version: 04
+      bg: "#ECD450"
+      fg: "#303952"
+      primary: "#ECD450"
+      navbar-bg: "#303952"
+      base_font:
+        google: "Lexend Deca"
+      code_font:
+        google: "Lexend Deca"
+    navbar:
+      - { title: "DatavizAdventure", href: "https://datavizadventure.com", align: right}
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(flexdashboard)
+library(tidyverse)
+library(readxl)
+library(scales)
+library(highcharter)
+
+#load data
+OECD<-read_csv("Data/OECD Unemployment Rate_Full Data.csv")
+
+#Edition all
+OECD_All <- OECD %>%
+  filter(Gender == "ALL") %>%
+  mutate(Date = lubridate::mdy(Date))
+
+#edition
+#edition dates
+OECD_dates <- OECD %>%
+  filter(Gender == "MEN" | Gender == "WOMEN") %>%
+  mutate(Date = lubridate::mdy(Date))
+
+#Rename columns
+names(OECD_dates)[names(OECD_dates) == "Unemployement Rate"] <- "Rate"
+names(OECD_dates)[names(OECD_dates) == "Country Name"] <- "Country"
+
+#Rename columns for ALL
+names(OECD_All)[names(OECD_All) == "Unemployement Rate"] <- "Rate"
+names(OECD_All)[names(OECD_All) == "Country Name"] <- "Country"
+```
+
+All {data-orientation=rows}
+=====================================
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Australia
+    
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Australia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Australia's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Austria
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Austria")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Austria's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Belgium
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Belgium")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Belgium's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Canada
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Canada")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Canada's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+###
+[OECD](https://www.oecd.org) is an international organization that works to build better policies for better lives. Their goal is to shape policies that foster prosperity, equality, opportunity and well-being for all. There are 38 counties that are members of the OECD (from January 2000 to September 2021. There are 2 countries out of the 38 OECD countries that are missing: New Zealand and Switzerland.
+
+In the following dashboard you can explore the **change in unemployment rate across countries between 2000 - 2021** by gender.
+
+Accesed on 30 January 2022.
+
+Challenge: [BACK 2 VIZ BASICS](https://www.thetableaustudentguide.com/vizbasics)
+
+Data Source: [Back 2 Viz Basics - Data.World](https://data.world/back2vizbasics/2022week-2-dates-line-charts)   |   [OECD Unemployment rate](https://data.oecd.org/unemp/unemployment-rate.htm)
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Chile
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Chile")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Chile's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+   
+### Colombia
+    
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Colombia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Colombia's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Costa Rica
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Costa Rica")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Costa Rica's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Czechia
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Czechia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Czechia's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Denmark
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Denmark")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Denmark's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Estonia
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Estonia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Estonia's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+
+### Finland
+    
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Finland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Findland's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### France
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="France")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "France's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Germany
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Germany")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Germany's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Greece
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Greece")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Greece's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Hungary
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Hungary")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Hungary's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+
+### Iceland
+    
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Iceland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Iceland's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Ireland
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Ireland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Ireland's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Israel
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Israel")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Israel's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Italy
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Italy")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Italy's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Japan
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Japan")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Japan's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+    
+### Korea
+    
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Korea")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Korea's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Latvia
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Latvia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Latvia's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Lithuania
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Lithuania")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Lithuania's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Luxembourg
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Luxembourg")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Luxembourg's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Mexico
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Mexico")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Mexico's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Netherlands
+    
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Netherlands")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Netherlands's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Norway
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Norway")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Norway's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Poland
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Poland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Poland's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Portugal
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Portugal")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Portugal's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Slovakia
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Slovakia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Slovakia's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Slovenia
+    
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Slovenia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Slovenia's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Spain
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Spain")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Spain's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+  
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Sweden
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Sweden")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Sweden's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Turkey
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="Turkey")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Turkey's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### United Kingdom
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="United Kingdom")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "United Kingdom's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### United States of America
+
+```{r fig.height= 4}
+
+OECD_All%>%
+  filter(Country=="United States of America")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "United States of America's rate", color = "#ECD450") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Men {data-orientation=rows}
+=====================================
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Australia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Australia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Australia's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Austria
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Austria")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Austria's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Belgium
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Belgium")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Belgium's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Canada
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Canada")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Canada's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Chile
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Chile")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Chile's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+
+### Colombia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Colombia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Colombia's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Costa Rica
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Costa Rica")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Costa Rica's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Czechia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Czechia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Czechia's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Denmark
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Denmark")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Denmark's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Estonia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Estonia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Estonia's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Finland
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Finland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Findland's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### France
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="France")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "France's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Germany
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Germany")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Germany's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Greece
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Greece")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Greece's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Hungary
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Hungary")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Hungary's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Iceland
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Iceland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Iceland's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Ireland
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Ireland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Ireland's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Israel
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Israel")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Israel's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Italy
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Italy")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Italy's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Japan
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Japan")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Japan's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+    
+### Korea
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Korea")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Korea's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Latvia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Latvia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Latvia's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Lithuania
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Lithuania")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Lithuania's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Luxembourg
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Luxembourg")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Luxembourg's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Mexico
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Mexico")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Mexico's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Netherlands
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Netherlands")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Netherlands's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Norway
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Norway")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Norway's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Poland
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Poland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Poland's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Portugal
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Portugal")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Portugal's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Slovakia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Slovakia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Slovakia's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Slovenia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Slovenia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Slovenia's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Spain
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Spain")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Spain's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+  
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Sweden
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Sweden")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Sweden's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Turkey
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="Turkey")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Turkey's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### United Kingdom
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="United Kingdom")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "United Kingdom's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### United States of America
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="MEN")%>%
+  filter(Country=="United States of America")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "United States of America's rate", color = "#3F9DCD") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Women {data-orientation=rows}
+=====================================
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+    
+### Australia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Australia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Australia's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Austria
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Austria")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Austria's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Belgium
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Belgium")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Belgium's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Canada
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Canada")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Canada's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Chile
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Chile")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Chile's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Colombia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Colombia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Colombia's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Costa Rica
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Costa Rica")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Costa Rica's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Czechia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Czechia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Czechia's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Denmark
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Denmark")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Denmark's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Estonia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Estonia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Estonia's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Finland
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Finland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Findland's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### France
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="France")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "France's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Germany
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Germany")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Germany's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Greece
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Greece")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Greece's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Hungary
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Hungary")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Hungary's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Iceland
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Iceland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Iceland's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Ireland
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Ireland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Ireland's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Israel
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Israel")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Israel's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Italy
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Italy")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Italy's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Japan
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Japan")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Japan's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+    
+### Korea
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Korea")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Korea's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Latvia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Latvia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Latvia's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Lithuania
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Lithuania")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Lithuania's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Luxembourg
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Luxembourg")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Luxembourg's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Mexico
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Mexico")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Mexico's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Netherlands
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Netherlands")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Netherlands's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Norway
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Norway")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Norway's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+   
+### Poland
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Poland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Poland's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Portugal
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Portugal")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Portugal's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Slovakia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Slovakia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Slovakia's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Slovenia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Slovenia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Slovenia's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+    
+### Spain
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Spain")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Spain's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+  
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Sweden
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Sweden")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Sweden's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### Turkey
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="Turkey")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "Turkey's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### United Kingdom
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="United Kingdom")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "United Kingdom's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+### United States of America
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Gender=="WOMEN")%>%
+  filter(Country=="United States of America")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate), name = "United States of America's rate", color = "#F88FE3") %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = FALSE)
+
+```
+
+Men & Women {data-orientation=rows}
+=====================================
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+    
+### Australia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Australia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+```
+    
+### Austria
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Austria")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+   
+### Belgium
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Belgium")%>%
+        hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+
+```
+
+### Canada
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Canada")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Chile
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Chile")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Colombia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Colombia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+    
+### Costa Rica
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Costa Rica")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+   
+### Czechia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Czechia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Denmark
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Denmark")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Estonia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Estonia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Finland
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Finland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+    
+### France
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="France")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+   
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Germany
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Germany")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Greece
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Greece")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Hungary
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Hungary")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Iceland
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Iceland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Ireland
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Ireland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+   
+### Israel
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Israel")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Italy
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Italy")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Japan
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Japan")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+    
+### Korea
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Korea")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+    
+### Latvia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Latvia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+   
+### Lithuania
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Lithuania")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Luxembourg
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Luxembourg")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Mexico
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Mexico")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Netherlands
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Netherlands")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+    
+### Norway
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Norway")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+   
+### Poland
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Poland")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Portugal
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Portugal")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Slovakia
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Slovakia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Slovenia
+    
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Slovenia")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+    
+### Spain
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Spain")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+Row {data-width=1920}
+-----------------------------------------------------------------------
+
+### Sweden
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Sweden")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### Turkey
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="Turkey")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### United Kingdom
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="United Kingdom")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
+
+### United States of America
+
+```{r fig.height= 4}
+
+OECD_dates%>%
+  filter(Country=="United States of America")%>%
+      hchart(type = "line",
+           hcaes(x = Date, y = Rate, group = Gender)) %>%
+    hc_yAxis(
+      title = list(text = ""),
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#666666"
+      )
+    ) %>%
+    hc_xAxis(title = list(text = ""), labels = list(
+      style = list(
+        fontFamily = "Roboto",
+        fontSize = "10px",
+        color = "#333333"
+      )
+    )) %>%  hc_legend(enabled = TRUE) %>%
+  hc_colors(c("#3F9DCD", "#F88FE3"))
+
+```
